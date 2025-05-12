@@ -1,7 +1,9 @@
 <h1>Category - <%= @category.name %></h1>
+<%= link_to "Add bookmark", new_category_bookmark_path(@category) %>
+<%# !!!! need to put @category in the parenthesis as it's a dynamic path, need to know which specific category %>
 <div class="list-group">
-  <div class="list-group-item">
-    <% @category.bookmarks.each do |bookmark|%>
+  <% @category.bookmarks.each do |bookmark|%>
+    <div class="list-group-item">
       <h4>
         <%= bookmark.recipe.name %> |
         <%= link_to "Delete", bookmark_path(bookmark),
@@ -9,6 +11,9 @@
       </h4>
       <img src= <%= bookmark.recipe.image_url %> alt="food image" >
       <p><%= bookmark.comment%></p>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
+
+<hr>
+<%= link_to "Back", categories_path %>
