@@ -1,1 +1,14 @@
 <h1>Category - <%= @category.name %></h1>
+<div class="list-group">
+  <div class="list-group-item">
+    <% @category.bookmarks.each do |bookmark|%>
+      <h4>
+        <%= bookmark.recipe.name %> |
+        <%= link_to "Delete", bookmark_path(bookmark),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </h4>
+      <img src= <%= bookmark.recipe.image_url %> alt="food image" >
+      <p><%= bookmark.comment%></p>
+    <% end %>
+  </div>
+</div>
