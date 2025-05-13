@@ -5,3 +5,5 @@
 //= link bootstrap.min.js
 //= link controllers/hello_controller.js
 //= link controllers/index.js
+ //= link category.jpeg
+ //= link banner_image.jpeg
