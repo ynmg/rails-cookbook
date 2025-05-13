@@ -13,12 +13,13 @@
 
   <div class="cards">
     <% @categories.each do |category|%>
-      <div class="card-category" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJHrqDF55cNBWhWFBwxDX6GRo3hJkKW2MD76MDgNDcFcZG0PjZw&s=10&ec=72940545');">
-        <div class="card-category-infos">
-          <div><%= link_to category.name, category_path(category.id), class: "text-white text-decoration-none" %></div>
-          <p><%= category.bookmarks.count %> recipes</p>
-        </div>
-      </div>
+      <%= link_to category_path(category.id) do %>
+            <div class="card-category" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNJHrqDF55cNBWhWFBwxDX6GRo3hJkKW2MD76MDgNDcFcZG0PjZw&s=10&ec=72940545');">
+              <div>
+                <h3><%= category.name %></h3>
+                <p><%= category.bookmarks.count %> recipes</p>
+              </div>
+            </div>
+      <% end %>
     <% end %>
-  </div>
 </div>
